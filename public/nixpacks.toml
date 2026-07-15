@@ -2,4 +2,4 @@
 nixPkgs = ["php85", "php85Extensions.pdo", "php85Extensions.pdo_mysql"]
 
 [start]
-cmd = "php -S 0.0.0.0:$PORT -t public public/router.php"
+cmd = "bash start.sh"
