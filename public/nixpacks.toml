@@ -1,5 +1,8 @@
 [phases.setup]
-nixPkgs = ["php85", "php85Extensions.pdo", "php85Extensions.pdo_mysql"]
+nixPkgs = []
+
+[phases.build]
+cmds = ["docker-php-ext-install pdo pdo_mysql"]
 
 [start]
 cmd = "bash start.sh"
