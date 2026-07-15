@@ -1,10 +1,11 @@
 <?php
 
 // --- Configuración de la Base de Datos ---
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'creaciones_justean_db');
+// Los valores reales vienen de variables de entorno (Railway, .env local, etc.)
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_NAME', getenv('DB_NAME') ?: 'creaciones_justean_db');
 
 // --- Configuración de Rutas ---
 
