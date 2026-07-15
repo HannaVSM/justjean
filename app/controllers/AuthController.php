@@ -58,17 +58,18 @@ class AuthController extends Controller {
      * @param object $user Objeto con los datos del usuario.
      */
     public function createUserSession($user) {
-        $_SESSION['idUsuario'] = $user->idUsuario;
-        $_SESSION['nombre'] = $user->nombre;
-        $_SESSION['rol'] = $user->rol;
+    $_SESSION['idUsuario'] = $user->idUsuario;
+    $_SESSION['nombre'] = $user->nombre;
+    $_SESSION['rol'] = $user->rol;
 
-        // Redirigir según el rol
-        if ($user->rol == 'Administrador') {
-            header('Location: ' . URLROOT . 'administrador/dashboard');
-        } else {
-            header('Location: ' . URLROOT . 'operario/dashboard');
-        }
+    if ($user->rol == 'Administrador') {
+        header('Location: ' . URLROOT . 'administrador/dashboard');
+    } else {
+        header('Location: ' . URLROOT . 'operario/dashboard');
     }
+
+    exit(); // 🔥 ESTO FALTABA
+}
 
     /**
      * Cierra la sesión del usuario.
