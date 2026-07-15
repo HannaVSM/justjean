@@ -8,10 +8,11 @@ define('DB_NAME', 'creaciones_justean_db');
 
 // --- Configuración de Rutas ---
 
-// APPROOT: Ruta de archivos del servidor (para require_once)
+// APPROOT: ruta física (ESTA ESTÁ BIEN)
 define('APPROOT', dirname(dirname(__DIR__)));
 
-// URLROOT: Ruta web (para enlaces, css, js, etc.)
-define('URLROOT', 'http://localhost/Sistema-inventario-justjean-main/');
+// 🔥 URLROOT DINÁMICO
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
 
-?>
+define('URLROOT', $protocol . '://' . $host . '/');
