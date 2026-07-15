@@ -1,31 +1,31 @@
 <?php
 
 class Database {
-    private $host = DB_HOST;
-    private $user = DB_USER;
-    private $pass = DB_PASS;
-    private $dbname = DB_NAME;
 
     private $dbh; // Database Handler
     private $stmt; // Statement
     private $error;
 
     public function __construct() {
-        // Configurar DSN (Data Source Name)
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+
+        $host   = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: 'localhost';
+        $user   = $_ENV['DB_USER'] ?? getenv('DB_USER') ?: 'root';
+        $pass   = $_ENV['DB_PASS'] ?? getenv('DB_PASS') ?: '';
+        $dbname = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?: '';
+        $port   = $_ENV['DB_PORT'] ?? getenv('DB_PORT') ?: '3306';
+
+        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+
         $options = [
-            PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            PDO::ATTR_CASE => PDO::CASE_NATURAL
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
         ];
 
-        // Crear una instancia de PDO
         try {
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+            $this->dbh = new PDO($dsn, $user, $pass, $options);
         } catch (PDOException $e) {
-            $this->error = $e->getMessage();
-            echo $this->error;
+            error_log("Error DB: " . $e->getMessage());
+            die("Ocurrió un error al conectar con la base de datos. Intenta más tarde.");
         }
     }
 
