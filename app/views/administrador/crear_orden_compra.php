@@ -1,4 +1,4 @@
-<?php require_once APPROOT . '../app/views/layouts/header.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/header.php'; ?>
 
 <div class="card">
     <div class="card-header">
@@ -87,4 +87,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require_once APPROOT . '../app/views/layouts/footer.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/footer.php'; ?>

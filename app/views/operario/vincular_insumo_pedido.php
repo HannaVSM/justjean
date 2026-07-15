@@ -1,4 +1,4 @@
-<?php require_once APPROOT . '../app/views/layouts/header.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/header.php'; ?>
 
 <div class="container-fluid p-4">
 
@@ -110,4 +110,4 @@
 
 </div>
 
-<?php require_once APPROOT . '../app/views/layouts/footer.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/footer.php'; ?>

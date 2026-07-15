@@ -1,4 +1,4 @@
-<?php require_once APPROOT . '../app/views/layouts/header.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/header.php'; ?>
 
 <div class="card">
     <div class="card-header">
@@ -44,4 +44,4 @@
     </div>
 </div>
 
-<?php require_once APPROOT . '../app/views/layouts/footer.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/footer.php'; ?>

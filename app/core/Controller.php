@@ -4,32 +4,30 @@ class Controller {
 
     /**
      * Carga un modelo específico.
-     * @param string $model El nombre del modelo a cargar (ej: 'Usuario').
-     * @return object Una instancia del modelo solicitado.
      */
     public function model($model) {
-        // Requiere el archivo del modelo desde la carpeta de modelos
-        require_once 'app/models/' . $model . '.php';
-        // Retorna una nueva instancia de la clase del modelo
-        return new $model();
+        $path = __DIR__ . '/../models/' . $model . '.php';
+
+        if (file_exists($path)) {
+            require_once $path;
+            return new $model();
+        } else {
+            die('El modelo no existe: ' . $model);
+        }
     }
 
     /**
      * Carga una vista específica.
-     * @param string $view El nombre de la vista a cargar (ej: 'auth/login').
-     * @param array $data Los datos a pasar a la vista.
      */
     public function view($view, $data = []) {
-        // Extrae los datos del array para que puedan ser usados como variables en la vista
         extract($data);
-        
-        // Verifica si el archivo de la vista existe
-        if (file_exists('app/views/' . $view . '.php')) {
-            // Requiere el archivo de la vista
-            require_once 'app/views/' . $view . '.php';
+
+        $path = __DIR__ . '/../views/' . $view . '.php';
+
+        if (file_exists($path)) {
+            require_once $path;
         } else {
-            // Si la vista no existe, muestra un error
-            die('La vista no existe.');
+            die('La vista no existe: ' . $view);
         }
     }
 }

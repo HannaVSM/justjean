@@ -16,7 +16,7 @@ class App {
             unset($url[0]);
         }
 
-        require_once 'app/controllers/' . $this->controller . '.php';
+        require_once __DIR__ . '/../controllers/' . $this->currentController . '.php';
         $this->controller = new $this->controller;
 
         // Determina el método a llamar

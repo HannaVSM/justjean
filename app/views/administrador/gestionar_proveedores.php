@@ -1,4 +1,4 @@
-<?php require_once APPROOT . '../app/views/layouts/header.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/header.php'; ?>
 
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
@@ -159,4 +159,4 @@
     });
 </script>
 
-<?php require_once APPROOT . '../app/views/layouts/footer.php'; ?>
+<?php require_once APPROOT . '/app/views/layouts/footer.php'; ?>
