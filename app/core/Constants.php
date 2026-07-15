@@ -11,8 +11,8 @@ define('DB_NAME', 'creaciones_justean_db');
 // APPROOT: ruta física (ESTA ESTÁ BIEN)
 define('APPROOT', dirname(dirname(__DIR__)));
 
-// 🔥 URLROOT DINÁMICO
+// URLROOT DINÁMICO — usa APP_URL si está seteada (Railway), si no construye desde el request
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
-$host = $_SERVER['HTTP_HOST'];
+$host     = $_SERVER['HTTP_HOST'] ?? 'localhost';
 
-define('URLROOT', getenv('APP_URL') ?: 'http://localhost/Sistema-inventario-justjean-main/');
+define('URLROOT', getenv('APP_URL') ?: $protocol . '://' . $host . '/');
