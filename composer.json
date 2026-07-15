@@ -1,0 +1,8 @@
+{
+  "name": "creaciones-justean/panel-operario",
+  "description": "Panel Operario - Creaciones Justean",
+  "type": "project",
+  "require": {
+    "php": ">=8.0"
+  }
+}
